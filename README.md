@@ -11,6 +11,60 @@ Gain more practical experience by using this repository that contains a Python W
 1. Enable your [GitHub Copilot service](https://github.com/github-copilot/signup)
 1. Open [this repository with Codespaces](https://codespaces.new/MicrosoftDocs/mslearn-copilot-codespaces-python)
 
+## Quick start (local development)
+
+Use these steps to run the project locally.
+
+### 1) Clone the repository
+
+```bash
+git clone https://github.com/MicrosoftDocs/mslearn-advanced-copilot.git
+cd mslearn-advanced-copilot
+```
+
+### 2) Create and activate a virtual environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+On Windows (PowerShell):
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+### 3) Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4) Run the API
+
+```bash
+uvicorn main:app --reload
+```
+
+The API will be available at:
+
+- Interactive docs: `http://127.0.0.1:8000/docs`
+- OpenAPI schema: `http://127.0.0.1:8000/.well-known/openapi.json`
+
+### 5) Run tests
+
+```bash
+pytest -q
+```
+
+### 6) Try the main endpoints
+
+- `GET /countries` - list all countries
+- `GET /countries/{country}` - list cities for a country (for example, `Spain`)
+- `GET /countries/{country}/{city}/{month}` - get monthly high/low values
+
 ## 💪🏽 Exercise
 The current API is not exposing country/{country} which needs to be implemented to list cities. The route should allow only GET HTTP requests with a JSON response providing information from the historical high and low for that country, city, and given month.
 
